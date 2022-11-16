@@ -1,4 +1,4 @@
-1 - Find the VM IP address
+# 1 - Find the VM IP address
 
 ```
 ➜  ~ ifconfig
@@ -47,6 +47,9 @@ Nmap done: 256 IP addresses (2 hosts up) scanned in 2.81 seconds
 -> We know that virtualbox is running on 192.168.56.1, so the VM is running on 192.168.56.105.
 
 -> we see that there are 2 http ports.
+
+# 2 - Find the directories of the website
+
 Let's run dirb to see what urls exist.
 
 ```
@@ -111,5 +114,31 @@ DOWNLOADED: 4612 - FOUND: 0
 
 ```
 
+# 3 - /forum
+
 Let's check the forum url:
 - we see 6 users, admin, lmezard, qudevide, zaz, wandre and thor.
+- There is a log file, where we can see different login attempts. One is successful, and we can see the password:  
+```
+Oct 5 08:45:29 BornToSecHackMe sshd[7547]: Failed password for invalid user !q\]Ej?*5K5cy*AJ from 161.202.39.38 port 57764 ssh2
+Oct 5 08:45:29 BornToSecHackMe sshd[7547]: Received disconnect from 161.202.39.38: 3: com.jcraft.jsch.JSchException: Auth fail [preauth]
+Oct 5 08:46:01 BornToSecHackMe CRON[7549]: pam_unix(cron:session): session opened for user lmezard by (uid=1040)
+```
+
+-> login : `lmezard`
+password: `!q\]Ej?*5K5cy*AJ`
+
+When we log in with these credentials, we find her email address: `laurie@borntosec.net`
+
+# 4 - /webmail
+
+We can use the same credentials to log into her email account.  
+We can find the root credentials for phpmyadmin in one of her emails.  
+
+```
+Hey Laurie,
+
+You cant connect to the databases now. Use root/Fg-'kKXBj87E:aJ$
+
+Best regards.
+```
