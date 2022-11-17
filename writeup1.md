@@ -145,20 +145,4 @@ Best regards.
 
 # phpmyadmin
 
-When we log into the website, we see a database with hashed passwords  
-![hashed_pwd](./misc/Screenshot%20from%202022-11-16%2014-23-21.png)  
-
-All the database start with `mlf2_`, and we can see on the forum page, that the website is powered by my little forum.  
-By digging on the github repo, we can find the following function:  
-`https://github.com/ilosuna/mylittleforum/blob/c1617a7aa07472cefa2249147b2dc79dc864f7a4/includes/functions.inc.php`  
-
-```
-function generate_pw_hash($pw)
- {
-  $salt = random_string(10,'0123456789abcdef');
-  $salted_hash = sha1($pw.$salt);
-  $hash_with_salt = $salted_hash.$salt;
-  return $hash_with_salt;
- }
-```
 
