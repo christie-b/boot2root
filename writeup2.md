@@ -46,5 +46,5 @@ It is used between the 2nd and 3rd step:
 We can therefore modify the `/etc/passwd` file.  
 This exploit replaces in `/etc/passwd` the user `root` by a new user called `firefart`, with a new password (set as `root` in the exploit).  
 
-
+![dirty_cow](/misc/dirty_cow.png)  
 https://fengweiz.github.io/19fa-cs315/slides/lab9-slides-dirty-cow.pdf
