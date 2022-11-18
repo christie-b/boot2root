@@ -40,7 +40,7 @@ copied memory
 `madvise` tells the kernel that we do not need the claimed part of the address any more. The kernel will free the resource of the claimed address and the process’s page table will point back to the original physical memory. 
 It is used between the 2nd and 3rd step:  
 - the 2nd step will make the virtual memory point to the copied memory
-- `madvise` will change it back to 
+- `madvise` will change it back to the original physical memory
 - the 3rd step will modify the original physical memory instead of the private copy.
 
 We can therefore modify the `/etc/passwd` file.  
