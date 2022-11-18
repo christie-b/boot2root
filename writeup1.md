@@ -177,7 +177,7 @@ By doing a `cat` on the file, we see a comment with the name of another file (fi
 By doing a `cat` on the file following this file (file5, that contains the begining of the function), we get the rest of the getme() function.  
 ![cat_file6](./misc/cat_file6.png)  
 
--> By doing that with all the getmeX() functions, we get the password: `Iheartpwneage`.  
+-> By doing that with all the getmeX() functions, we get the password: `Iheartpwnage`.  
 
 ![Iheartpwnage](./misc/Iheartpwnage.png)  
 
