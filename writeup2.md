@@ -7,7 +7,8 @@ laurie@BornToSecHackMe:~$ uname -r
 ```
 
 This version is prone to a vulnerability, through the DirtyCow exploit.  
-<!-- https://www.exploit-db.com/exploits/40839 -->
+
+// https://www.exploit-db.com/exploits/40839  
 
 # Steps
 
@@ -45,4 +46,5 @@ It is used between the 2nd and 3rd step:
 We can therefore modify the `/etc/passwd` file.  
 This exploit replaces in `/etc/passwd` the user `root` by a new user called `firefart`, with a new password (set as `root` in the exploit).  
 
-<!-- https://fengweiz.github.io/19fa-cs315/slides/lab9-slides-dirty-cow.pdf -->
+
+https://fengweiz.github.io/19fa-cs315/slides/lab9-slides-dirty-cow.pdf

