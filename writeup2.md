@@ -29,5 +29,20 @@ uid=0(firefart) gid=0(root) groups=0(root)
 
 There is a race condition in the implementation of the copy-on-write (COW) mechanism in the kernel's memory-management subsystem.  
 Because of the race condition, with the right timing, a local attacker can exploit the copy-on-write mechanism to turn a read-only mapping of a file into a writable mapping.  
-We can then modify the `/etc/passwd` file.  
+
+There are 3 steps:  
+- Make a copy of the mapped memory
+- Update the page table, so the virtual memory points to
+copied memory
+- Write to the memory
+
+`madvise` tells the kernel that we do not need the claimed part of the address any more. The kernel will free the resource of the claimed address and the process’s page table will point back to the original physical memory. 
+It is used between the 2nd and 3rd step:  
+- the 2nd step will make the virtual memory point to the copied memory
+- `madvise` will change it back to 
+- the 3rd step will modify the original physical memory instead of the private copy.
+
+We can therefore modify the `/etc/passwd` file.  
 This exploit replaces in `/etc/passwd` the user `root` by a new user called `firefart`, with a new password (set as `root` in the exploit).  
+
+<!-- https://fengweiz.github.io/19fa-cs315/slides/lab9-slides-dirty-cow.pdf -->
