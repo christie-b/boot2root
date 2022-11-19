@@ -20,7 +20,7 @@ Then, we execute it. After some time, we gain root access:
 laurie@BornToSecHackMe:~$ ./exploit
 [...]
 Password:
-root
+infected
 
 firefart@BornToSecHackMe:/home/laurie# id
 uid=0(firefart) gid=0(root) groups=0(root)
@@ -44,7 +44,7 @@ It is used between the 2nd and 3rd step:
 - the 3rd step will modify the original physical memory instead of the private copy.
 
 We can therefore modify the `/etc/passwd` file.  
-This exploit replaces in `/etc/passwd` the user `root` by a new user called `firefart`, with a new password (set as `root` in the exploit).  
+This exploit replaces in `/etc/passwd` the user `root` by a new user called `firefart`, with a new password (set as `infected` in the exploit).  
 
 ![dirty_cow](/misc/dirty_cow.png)  
 https://fengweiz.github.io/19fa-cs315/slides/lab9-slides-dirty-cow.pdf
