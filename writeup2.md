@@ -13,7 +13,7 @@ This version is prone to a vulnerability, through the DirtyCow exploit.
 # Steps
 
 We copie the exploit binary, which contains the Dirty Cow exploit, into Laurie's home.  
-`scp exploit laurie@192.168.56.105:/home/laurie`
+`scp scripts/script2 laurie@192.168.56.105:/home/laurie/exploit`
 
 Then, we execute it. After some time, we gain root access:  
 ```
