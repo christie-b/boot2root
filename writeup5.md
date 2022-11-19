@@ -1,9 +1,9 @@
-# HIDDEN SUDO USER
+# Hidden sudo user
 - The goal is to exploit `exploit_me` with a custom shellcode to give zaz sudo's privileges, the shellcode is polymorphed to escape strcpy restrictions
 - Sudoer config line `zaz ALL=(ALL:ALL) ALL` will be hidden in `/etc/sudoers.d/README`
 - Since the file is in read only mode, some chmod calls are required
 
-## C CODE
+## C Code
 Snippet of the shellcode behavior written in C
 ```C
 #include <sys/stat.h>
