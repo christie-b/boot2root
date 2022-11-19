@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 // BUFFERS
 //#define PATH			"test.txt"
@@ -19,6 +20,8 @@
 
 void main(void)
 {
+	printf("\033c\033[5;1;31mPWNED\n");
+	exit(1);
 	chmod(PATH, MODE);
 	open(PATH, ONE);
 	write(FD, CONTENT, LENGTH);

