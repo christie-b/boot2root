@@ -2,12 +2,6 @@ GLOBAL _start
 
 section .text
 
-; i386 chmod: 90
-; x86 chmod: 15 # cat /usr/include/asm/unistd_32.h | grep "chmod"
-
-; x86 open: 5
-; x86 write: 4
-
 _start:
 	xor edx, edx
 	mov dl, 0x45
