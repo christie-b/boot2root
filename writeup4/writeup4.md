@@ -1,5 +1,5 @@
 # HIDDEN SUDO USER
-Exploit the binary exploit_me with a custom shellcode to give zaz the sudo's privileges, the shellcode is polymorphed to escape strcpy restrictions
+The goal is to exploit `exploit_me` with a custom shellcode to give zaz sudo's privileges, the shellcode is polymorphed to escape strcpy restrictions
 
 ## C CODE
 Snippet of the shellcode behavior written in C
