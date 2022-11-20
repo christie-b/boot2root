@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# scp exploit zaz@192.168.56.105:/home/zaz
+# scp scripts/script4 zaz@192.168.56.105:/home/zaz/exploit
 # 646da671ca01bb5d84dbb5fb2238dc8e
 
 # ssh zaz@192.168.56.105
