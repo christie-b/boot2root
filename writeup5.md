@@ -304,7 +304,7 @@ cd 80 					int 0x80
 ```
 $ ssh zaz@192.168.56.105
 [...]
-Password: 646da671ca01bb5d84dbb5fb2238dc8e
+zaz@192.168.56.105's password: 646da671ca01bb5d84dbb5fb2238dc8e
 [...]
 ```
 - Privileges check
