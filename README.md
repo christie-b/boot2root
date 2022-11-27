@@ -1,6 +1,6 @@
 # Boot2root
 
-Exploit an ISO and become root, 2 different methods must be found and the ISO cannot be modified.
+Exploit an ISO and become root, 2 different methods must be found for the mandatory part, and the ISO cannot be modified.
 ## Introduction
 [Penetration testing](https://en.wikipedia.org/wiki/Penetration_test) or Pen testing is a security exercise where a cyber-security expert attempts to find and exploit vulnerabilities in a computer system. The purpose of this simulated attack is to identify any weak spots in a system’s defenses which attackers could take advantage of.
 ## Writeups
